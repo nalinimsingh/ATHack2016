@@ -808,6 +808,10 @@ function onTimer() {
 
 exports.showResult = function(msg, baseString, model) {
   if (msg.results && msg.results.length > 0) {
+    var session = require('../index');
+    var sessionName = session.getSessionName();
+    var sessionRef = session.dataRef;
+    
     var alternatives = msg.results[0].alternatives;
     var text = msg.results[0].alternatives[0].transcript || '';
 
@@ -821,6 +825,7 @@ exports.showResult = function(msg, baseString, model) {
         type:'push',
         msg:msg
       });
+      
       pushed++;
       console.log('----> pushed', pushed);
       if(runTimer == false) {
@@ -851,6 +856,10 @@ exports.showResult = function(msg, baseString, model) {
       }
       baseString += text;
       $('#resultsText').val(baseString);
+      var sessionRef = session.dataRef.child(sessionName);
+      sessionRef.set({
+        "transcript": text
+      });
     } 
     else {
       if(japanese) {
