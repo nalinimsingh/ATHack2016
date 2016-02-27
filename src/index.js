@@ -37,25 +37,44 @@ exports.getSessionName = function(){
 $(document).ready(function() {
   var tokenGenerator = utils.createTokenGenerator();
 
-  myDataRef.child(sessionName).on("value", function(snapshot) {
-    console.log(snapshot.val().transcript);
+  myDataRef.child(sessionName).child('transcript').on("value", function(snapshot) {
     if(snapshot.val()) {
       
       // store current positions in variables
       var start = document.getElementById("edittedText").selectionStart,
       end = document.getElementById("edittedText").selectionEnd;
 
-      $('#edittedText').val($('#edittedText').val() + snapshot.val().transcript);
+      $('#edittedText').val($('#edittedText').val() + snapshot.val());
 
       // restore from variables...
       document.getElementById("edittedText").setSelectionRange(start, end);
     }
   });
 
+  myDataRef.child(sessionName).child('editted').on("value", function(snapshot) {
+    if(snapshot.val()) {
+      
+      // store current positions in variables
+      var start = document.getElementById("edittedText").selectionStart,
+      end = document.getElementById("edittedText").selectionEnd;
+
+      $('#edittedText').val(snapshot.val());
+
+      // restore from variables...
+      document.getElementById("edittedText").setSelectionRange(start, end);
+    }
+  });  
+
+  $( "#edittedText" ).change(function() {
+    myDataRef.child(sessionName).set({
+      edited: $("#edittedText").val()
+    });    
+  });
+
   myDataRef.child(sessionName).set({
     transcript: '',
     edited: ''
-});
+  });
   exports.dataRef = myDataRef;
 
   // Make call to API to try and get token
