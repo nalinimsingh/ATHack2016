@@ -29,6 +29,9 @@ const boldFont = 'bold ' + fontSize + 'px Arial';
 const italicFont = 'italic ' + fontSize + 'px Arial';
 const opacity = '0.6';
 
+var Firebase = require("firebase");
+var myDataRef = new Firebase('https://texttyper.firebaseio.com/');
+
 var showAllHypotheses = true;
 var keywordsInputDirty = false;
 var keywords_to_search = [];
@@ -861,6 +864,13 @@ exports.showResult = function(msg, baseString, model) {
   updateTextScroll();
   return baseString;
 };
+
+var index = require('../index');
+myDataRef.child(index.getSessionName()).on("value", function(snapshot) {
+  if(snapshot.val()) {
+    $('#edittedText').val($('#edittedText').val() + snapshot.val().transcript);
+  }
+});
 
 exports.getKeywordsToSearch = function() {
   return keywords_to_search;

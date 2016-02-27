@@ -155,6 +155,7 @@
                   <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#home2" aria-controls="home" role="tab" data-toggle="tab">Text</a></li>
                     <li role="presentation"><a href="#profile2" aria-controls="profile" role="tab" data-toggle="tab">JSON</a></li>
+                    <li role="presentation"><a href="#editted" aria-controls="profile" role="tab" data-toggle="tab">Editted Text</a></li>
                   </ul>
                   <div class="hr-tab"></div>
                   <fieldset>
@@ -183,6 +184,9 @@
                           </div>
                           <div role="tabpanel" class="tab-pane" id="profile2">
                             <textarea readonly id="resultsJSON"></textarea>
+                          </div>
+                          <div role="tabpanel" class="tab-pane" id="editted">
+                            <textarea id="edittedText"></textarea>
                           </div>
                         </div>
                       </div><!-- .col-lg-12 -->
@@ -236,6 +240,8 @@
 
       <!-- for file upload dialog in toolbar -->
       <input style="display:none" type="file" id="fileUploadDialog">
+
+      <button id="sendValue">test</button>
 
       <!-- Place js files at the end of the document, with fallbacks for CDNs -->
       <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
