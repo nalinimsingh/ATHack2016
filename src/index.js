@@ -24,11 +24,20 @@ var initViews = require('./views').initViews;
 var showerror = require('./views/showerror');
 var showError = showerror.showError;
 var getModels = require('./models').getModels;
+var Firebase = require("firebase");
+var myDataRef = new Firebase('https://texttyper.firebaseio.com/');
+
 
 window.BUFFERSIZE = 8192;
 
 $(document).ready(function() {
   var tokenGenerator = utils.createTokenGenerator();
+
+  var sessionName = window.prompt("Session Name","");
+  myDataRef.set({
+  sessionID: sessionName,
+  transcript: "Test",
+});
 
   // Make call to API to try and get token
   tokenGenerator.getToken(function(err, token) {
