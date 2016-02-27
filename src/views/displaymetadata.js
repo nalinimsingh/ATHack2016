@@ -858,7 +858,7 @@ exports.showResult = function(msg, baseString, model) {
       $('#resultsText').val(baseString);
       var sessionRef = session.dataRef.child(sessionName);
       console.log("uploading to firebase");
-      sessionRef.set({
+      sessionRef.update({
         "transcript": text
       });
     } 

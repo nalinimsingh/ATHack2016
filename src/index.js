@@ -52,7 +52,7 @@ $(document).ready(function() {
   });
 
   $( "#edittedText" ).on('change keyup paste', function() {
-    myDataRef.child(sessionName).set({
+    myDataRef.child(sessionName).update({
       editted: $("#edittedText").val()
     });    
   });
