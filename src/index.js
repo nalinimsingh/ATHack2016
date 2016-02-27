@@ -67,14 +67,7 @@ $(document).ready(function() {
       $('#edittedText').val(snapshot.val());
 
       // restore from variables...
-      document.getElementById("edittedText").setSelectionRange(start, end);
-
-    $( "#edittedText" ).change(function() {
-    console.log("editting text");
-    myDataRef.child(sessionName).set({
-      editted: $("#edittedText").val()
-    });    
-  });
+      document.getElementById("edittedText").setSelectionRange(start, end);    
     }
   });  
 
