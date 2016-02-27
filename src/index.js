@@ -40,7 +40,15 @@ $(document).ready(function() {
   myDataRef.child(sessionName).on("value", function(snapshot) {
     console.log(snapshot.val().transcript);
     if(snapshot.val()) {
+      
+      // store current positions in variables
+      var start = document.getElementById("edittedText").selectionStart,
+      end = document.getElementById("edittedText").selectionEnd;
+
       $('#edittedText').val($('#edittedText').val() + snapshot.val().transcript);
+
+      // restore from variables...
+      document.getElementById("edittedText").setSelectionRange(start, end);
     }
   });
 
