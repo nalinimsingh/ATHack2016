@@ -144,10 +144,13 @@ Microphone.prototype.record = function() {
  * Stop the audio recording
  */
 Microphone.prototype.stop = function() {
-  if (!this.recording)
+  if (!this.recording) {
     return;
-  if(JSON.parse(localStorage.getItem('playback')))
+  }
+
+  if(JSON.parse(localStorage.getItem('playbackON'))) {
     this.playWav(); /*plays back the audio that was recorded*/
+  }
   this.recording = false;
   this.stream.getTracks()[0].stop();
   this.requestedAccess = false;
