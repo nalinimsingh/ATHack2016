@@ -29,15 +29,19 @@ var myDataRef = new Firebase('https://texttyper.firebaseio.com/');
 
 window.BUFFERSIZE = 8192;
 
+var sessionName = window.prompt("Session Name","");
+exports.getSessionName = function(){
+  return sessionName;
+};
+
 $(document).ready(function() {
   var tokenGenerator = utils.createTokenGenerator();
 
-  var sessionName = window.prompt("Session Name","");
-  exports.sessionName = sessionName;
   myDataRef.child(sessionName).set({
     transcript: '',
     edited: ''
 });
+  exports.dataRef = myDataRef;
 
   // Make call to API to try and get token
   tokenGenerator.getToken(function(err, token) {
