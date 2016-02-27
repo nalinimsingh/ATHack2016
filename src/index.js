@@ -37,6 +37,13 @@ exports.getSessionName = function(){
 $(document).ready(function() {
   var tokenGenerator = utils.createTokenGenerator();
 
+  myDataRef.child(sessionName).on("value", function(snapshot) {
+    console.log(snapshot.val().transcript);
+    if(snapshot.val()) {
+      $('#edittedText').val($('#edittedText').val() + snapshot.val().transcript);
+    }
+  });
+
   myDataRef.child(sessionName).set({
     transcript: '',
     edited: ''

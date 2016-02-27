@@ -857,6 +857,7 @@ exports.showResult = function(msg, baseString, model) {
       baseString += text;
       $('#resultsText').val(baseString);
       var sessionRef = session.dataRef.child(sessionName);
+      console.log("uploading to firebase");
       sessionRef.set({
         "transcript": text
       });
@@ -873,13 +874,6 @@ exports.showResult = function(msg, baseString, model) {
   updateTextScroll();
   return baseString;
 };
-
-var index = require('../index');
-myDataRef.child(index.getSessionName()).on("value", function(snapshot) {
-  if(snapshot.val()) {
-    $('#edittedText').val($('#edittedText').val() + snapshot.val().transcript);
-  }
-});
 
 exports.getKeywordsToSearch = function() {
   return keywords_to_search;
