@@ -469,11 +469,11 @@ $('#btnLoadKWS input').change(function(e) {
     var text = reader.result;
     var keywordsToSearch = text.split('\n');
     keywordsToSearch.forEach(addKeywordToSearch);
-    if(keywordsToSearch.length > 0) {
-      $('.keywords_title').css('display', 'block');
-      $('#keywords').css('display', 'block');
-      $('#transcription_text').css('width', '55%');
-    }
+    // if(keywordsToSearch.length > 0) {
+    //   $('.keywords_title').css('display', 'block');
+    //   $('#keywords').css('display', 'block');
+    //   $('#transcription_text').css('width', '55%');
+    // }
   };
 });
 
@@ -490,11 +490,11 @@ $('#tb_keywords').change(function() {
   clearKeywordsToSearch();
   var text = $(this).val();
   text.split(',').forEach(addKeywordToSearch);
-  if(keywords_to_search.length > 0) {
-    $('.keywords_title').css('display', 'block');
-    $('#keywords').css('display', 'block');
-    $('#transcription_text').css('width', '55%');
-  }
+  // if(keywords_to_search.length > 0) {
+  //   $('.keywords_title').css('display', 'block');
+  //   $('#keywords').css('display', 'block');
+  //   $('#transcription_text').css('width', '55%');
+  // }
 });
 
 // -----------------------------------------------------------------
