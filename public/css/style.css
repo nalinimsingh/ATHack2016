@@ -451,3 +451,17 @@ div#editted {
 .titles {
   margin-right: 100px;
 }
+
+#firstTab {
+  margin-left: 300px;
+  font-weight: bold;
+}
+
+#secondTab {
+  margin-left: 600px;
+  font-weight: bold;
+}
+
+.transcriberbox {
+  font-size: 28px;
+}

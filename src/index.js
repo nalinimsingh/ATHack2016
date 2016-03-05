@@ -37,7 +37,7 @@ exports.getSessionName = function(){
 $(document).ready(function() {
   var tokenGenerator = utils.createTokenGenerator();
 
-  myDataRef.child(sessionName).child('transcript').on("value", function(snapshot) {
+  myDataRef.child(sessionName).child('transcriptNextSentence').on("value", function(snapshot) {
     if(snapshot.val()) {
       
         // store current positions in variables
@@ -69,7 +69,13 @@ $(document).ready(function() {
       // restore from variables...
       document.getElementById("edittedText").setSelectionRange(start, end);    
     }
-  });  
+  }); 
+
+  myDataRef.child(sessionName).child('transcript').on("value", function(snapshot) {
+    if(snapshot.val()) {
+        $('#resultsText').val(snapshot.val());
+    }
+  }); 
 
   myDataRef.child(sessionName).set({
     transcript: '',

@@ -857,9 +857,9 @@ exports.showResult = function(msg, baseString, model) {
       baseString += text;
       $('#resultsText').val(baseString);
       var sessionRef = session.dataRef.child(sessionName);
-      console.log("uploading to firebase");
       sessionRef.update({
-        "transcript": text
+        "transcriptNextSentence": text,
+        "transcript": baseString
       });
     } 
     else {
@@ -869,6 +869,10 @@ exports.showResult = function(msg, baseString, model) {
           text = text.charAt(0).toUpperCase() + text.substring(1);
       }
       $('#resultsText').val(baseString + text);
+      var sessionRef = session.dataRef.child(sessionName);
+      sessionRef.update({
+        "transcript": baseString + text
+      });
     }
   }
   updateTextScroll();
