@@ -67,20 +67,22 @@ $(document).ready(function() {
       $('#edittedText').val(snapshot.val());
 
       // restore from variables...
-      document.getElementById("edittedText").setSelectionRange(start, end);    
+      document.getElementById("edittedText").setSelectionRange(start, end); 
+      $('#edittedText').scrollTop($('#edittedText')[0].scrollHeight);   
     }
   }); 
 
   myDataRef.child(sessionName).child('transcript').on("value", function(snapshot) {
     if(snapshot.val()) {
         $('#resultsText').val(snapshot.val());
+        //document.getElementById("resultsText").scrollTop = document.getElementById("resultsText").scrollHeight
     }
   }); 
 
-  myDataRef.child(sessionName).set({
+  /*myDataRef.child(sessionName).set({
     transcript: '',
     editted: ''
-  });
+  });*/
   exports.dataRef = myDataRef;
 
   // Make call to API to try and get token
