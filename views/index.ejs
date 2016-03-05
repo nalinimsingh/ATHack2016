@@ -100,8 +100,8 @@
                 <div role="tabpanel">
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#home2" aria-controls="home" role="tab" data-toggle="tab">Text</a></li>
-                    <li role="presentation"><a href="#editted" aria-controls="profile" role="tab" data-toggle="tab">Edited Text</a></li>
+                    <li role="presentation" class="titles"><aria-controls="home" role="tab" data-toggle="tab">Text</a></li>
+                    <li role="presentation" class="titles"><aria-controls="profile" role="tab" data-toggle="tab">Edited Text</a></li>
                   </ul>
                   <div class="hr-tab"></div>
                   <fieldset>
@@ -125,15 +125,14 @@
                     <div class="form-group row tabpanel-row">
                       <div class="col-lg-12">
                         <div class="tab-content">
-                          <div role="tabpanel" class="tab-pane active" id="home2">
-                            <textarea id="resultsText" dir="auto"></textarea>
-                          </div>
-                          <div role="tabpanel" class="tab-pane" id="profile2">
-                            <textarea readonly id="resultsJSON"></textarea>
-                          </div>
-                          <div role="tabpanel" class="tab-pane" id="editted">
-                            <textarea id="edittedText"></textarea>
-                          </div>
+                          <section>
+                            <div id="home2">
+                              <textarea id="resultsText" dir="auto"></textarea>
+                            </div>
+                            <div id="editted">
+                              <textarea id="edittedText"></textarea>
+                            </div>
+                          </section>
                         </div>
                       </div><!-- .col-lg-12 -->
                     </div>

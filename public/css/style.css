@@ -9,8 +9,8 @@
 }
 
 .row {
-  margin-left: 0px!important;
-  margin-right: 0px!important;
+  margin-left: -150px!important;
+  margin-right: -150px!important;
 }
 
 .navbar {
@@ -69,11 +69,12 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .dropdown {
-  width: 135% !important;
+  width: 105% !important;
 }
 
 #dropdownMenu1 {
   margin-bottom: 2em;
+  margin-right: 60px;
 }
 
 .error-row {
@@ -410,7 +411,7 @@ table.kws_occurrences {
 }
 
 #tb_keywords {
-  padding-left:1em;
+  padding-left:200px;
   width:230%;
   height:58px;
 }
@@ -419,3 +420,34 @@ table.kws_occurrences {
   text-decoration:none;
 }
 
+section {
+    width: 3000px;
+    height: 500px;
+    margin: auto;
+    padding: 10px;
+    padding-left: 475px;
+}
+#resultsText {
+    width: 700px;
+    height: 500px;
+    float: left;
+    padding-left: -100px;
+    margin-left: -300px;
+}
+#edittedText {
+    float: left;
+    width: 700px;
+    height: 500px;
+    padding-left: -50px;
+    margin-left: 80px;
+}
+div#home2 {
+  float: left;
+}
+div#editted {
+  float: left;
+}
+
+.titles {
+  margin-right: 100px;
+}
