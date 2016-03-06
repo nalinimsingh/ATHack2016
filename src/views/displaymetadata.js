@@ -856,6 +856,7 @@ exports.showResult = function(msg, baseString, model) {
       }
       baseString += text;
       $('#resultsText').val(baseString);
+      $('#resultsText').scrollTop($('#resultsText')[0].scrollHeight);
       var sessionRef = session.dataRef.child(sessionName);
       sessionRef.update({
         "transcriptNextSentence": text,
@@ -869,6 +870,7 @@ exports.showResult = function(msg, baseString, model) {
           text = text.charAt(0).toUpperCase() + text.substring(1);
       }
       $('#resultsText').val(baseString + text);
+      $('#resultsText').scrollTop($('#resultsText')[0].scrollHeight);
       var sessionRef = session.dataRef.child(sessionName);
       sessionRef.update({
         "transcript": baseString + text
