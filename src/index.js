@@ -48,6 +48,7 @@ $(document).ready(function() {
 
         // restore from variables...
         document.getElementById("edittedText").setSelectionRange(start, end);
+        $('#edittedText').scrollTop($('#edittedText')[0].scrollHeight);
     }
   });
 
@@ -75,6 +76,7 @@ $(document).ready(function() {
   myDataRef.child(sessionName).child('transcript').on("value", function(snapshot) {
     if(snapshot.val()) {
         $('#resultsText').val(snapshot.val());
+        $('#resultsText').scrollTop($('#resultsText')[0].scrollHeight);
         //document.getElementById("resultsText").scrollTop = document.getElementById("resultsText").scrollHeight
     }
   }); 
